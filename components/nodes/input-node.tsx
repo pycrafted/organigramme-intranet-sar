@@ -6,35 +6,23 @@ import type { NodeData } from "@/lib/types"
 
 export const InputNode = memo(({ data, isConnectable }: NodeProps<NodeData>) => {
   return (
-    <div
-      className={`bg-white rounded-xl border-2 overflow-hidden min-w-[220px] transition-all duration-300 ${
-        data.isHighlighted ? "border-blue-500 shadow-lg shadow-blue-200 ring-2 ring-blue-200" : "border-gray-200"
-      }`}
-      onMouseEnter={data.onMouseEnter}
-      onMouseLeave={data.onMouseLeave}
-    >
+    <div className="bg-white rounded-xl border border-gray-200 overflow-hidden min-w-[180px] sm:min-w-[220px]">
       {data.photo && (
-        <div className="flex justify-center pt-6 pb-4">
+        <div className="flex justify-center pt-4 sm:pt-6 pb-3 sm:pb-4">
           <img
             src={data.photo || "/placeholder.svg"}
             alt={data.label}
-            className={`w-20 h-20 rounded-full object-cover ring-4 transition-all duration-300 ${
-              data.isHighlighted ? "ring-blue-200" : "ring-gray-100"
-            }`}
+            className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover ring-4 ring-gray-100"
           />
         </div>
       )}
 
-      <div className="px-6 pb-6 text-center">
-        <h3 className="text-base font-semibold text-gray-900 mb-1">{data.label || "Input"}</h3>
-        <p className="text-sm text-gray-500 leading-relaxed">{data.description || "Data input node"}</p>
+      <div className="px-4 sm:px-6 pb-4 sm:pb-6 text-center">
+        <h3 className="text-sm sm:text-base font-semibold text-gray-900 mb-1">{data.label || "Input"}</h3>
+        <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">{data.description || "Data input node"}</p>
 
         {data.department && (
-          <div
-            className={`mt-3 inline-block text-xs px-3 py-1.5 rounded-full font-medium transition-all duration-300 ${
-              data.isHighlighted ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-700"
-            }`}
-          >
+          <div className="mt-2 sm:mt-3 inline-block text-[10px] sm:text-xs bg-gray-100 text-gray-700 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full font-medium">
             {data.department}
           </div>
         )}
